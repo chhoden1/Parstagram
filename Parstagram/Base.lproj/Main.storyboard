@@ -133,6 +133,42 @@
                                             <outlet property="usernameLabel" destination="NcR-US-s1K" id="Wp6-GF-mIF"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" id="uY3-DZ-9G4" customClass="CommentCell" customModule="Parstagram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="582" width="414" height="37.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uY3-DZ-9G4" id="Exv-yr-f0q">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="37.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chhoden" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PxN-ot-2kf">
+                                                    <rect key="frame" x="16" y="8" width="74" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a comment" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLn-Vq-Nc6">
+                                                    <rect key="frame" x="98" y="8" width="138.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="oLn-Vq-Nc6" firstAttribute="leading" secondItem="PxN-ot-2kf" secondAttribute="trailing" constant="8" id="5Bx-dZ-872"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oLn-Vq-Nc6" secondAttribute="trailing" constant="8" id="82i-il-n8w"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="PxN-ot-2kf" secondAttribute="bottom" constant="8" id="LA5-J0-8Wy"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="oLn-Vq-Nc6" secondAttribute="bottom" constant="8" id="O7h-fb-4ys"/>
+                                                <constraint firstItem="PxN-ot-2kf" firstAttribute="leading" secondItem="Exv-yr-f0q" secondAttribute="leading" constant="16" id="Rqo-U6-aEg"/>
+                                                <constraint firstItem="PxN-ot-2kf" firstAttribute="top" secondItem="Exv-yr-f0q" secondAttribute="top" constant="8" id="Trz-ob-Wff"/>
+                                                <constraint firstItem="oLn-Vq-Nc6" firstAttribute="top" secondItem="Exv-yr-f0q" secondAttribute="top" constant="8" id="m9j-bA-7l4"/>
+                                                <constraint firstItem="oLn-Vq-Nc6" firstAttribute="leading" secondItem="PxN-ot-2kf" secondAttribute="trailing" constant="8" id="orI-IO-9zs"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="commentLabel" destination="oLn-Vq-Nc6" id="xfr-WT-agP"/>
+                                            <outlet property="nameLabel" destination="PxN-ot-2kf" id="3JP-op-95o"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
