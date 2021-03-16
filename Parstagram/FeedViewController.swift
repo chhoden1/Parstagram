@@ -15,8 +15,10 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     let commentBar = MessageInputBar()
     var showsCommentBar = false
+  
     
     var posts = [PFObject]()
+    var selectedPost: PFObject!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +32,12 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         tableView.keyboardDismissMode = .interactive
         
+        
+        
         let center = NotificationCenter.default
-        center.addObserver(self, selector: #selector(keyboardWillBeHidden(note:)),
-                           name:
-                    UIResponder.keyboardWillHideNotification,
-                           object: nil)
+        center.addObserver(self, selector:
+                           #selector(keyboardWillBeHidden(note:)), name:
+                            UIResponder.keyboardDidHideNotification, object: nil)
 
         // Do any additional setup after loading the view.
     }
@@ -72,12 +75,12 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     func messageInputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
         // create the comment
         let comment = PFObject(className: "Comments")
-        comment["text"] = "text"
-        comment["post"] = post
+        comment["text"] = text
+        comment["post"] = selectedPost
         comment["author"] = PFUser.current()!
 
-        post.add(comment, forKey: "comments")
-        post.saveInBackground {(success, error) in
+        selectedPost.add(comment, forKey: "comments")
+        selectedPost.saveInBackground {(success, error) in
             if success{
                 print("Comment saved")
             }
@@ -85,7 +88,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 print("Error saving comment")
             }
         }
-        
+        tableView.reloadData()
         
         
         // Clear and dismiss the input bar
@@ -149,6 +152,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             showsCommentBar = true
             becomeFirstResponder()
             commentBar.inputTextView.becomeFirstResponder()
+            
+            selectedPost =  post
         }
     }
         
