@@ -33,11 +33,11 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.keyboardDismissMode = .interactive
         
         
-        
+    
         let center = NotificationCenter.default
         center.addObserver(self, selector:
                            #selector(keyboardWillBeHidden(note:)), name:
-                            UIResponder.keyboardDidHideNotification, object: nil)
+                            UIResponder.keyboardWillHideNotification, object: nil)
 
         // Do any additional setup after loading the view.
     }
@@ -46,7 +46,6 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         commentBar.inputTextView.text = nil
         showsCommentBar = false
         becomeFirstResponder()
-        
     }
     
     override var inputAccessoryView: UIView?{
@@ -152,19 +151,12 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             showsCommentBar = true
             becomeFirstResponder()
             commentBar.inputTextView.becomeFirstResponder()
-            
+    
             selectedPost =  post
         }
     }
         
-  
-        
 
-        
-    
-    
-    
-    
     
     @IBAction func onLogoutButton(_ sender: Any) {
         PFUser.logOut()
